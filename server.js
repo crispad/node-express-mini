@@ -1,7 +1,11 @@
 const express = require('express');
+const morgan = require('morgan');
 const db = require('./data/db.js');
 
 const server = express();
+
+//middleware 
+server.use(morgan('dev'));
 
 server.get('/', function(req, res) {
     res.json({ api: 'Running...'});
