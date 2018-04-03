@@ -10,6 +10,7 @@ const server = express();
 //middleware 
 server.use(morgan('dev'));
 server.use(helmet());
+server.use(express.json());
 
 server.get('/', function(req, res) {
     res.json({ api: 'Running...'});
