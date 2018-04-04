@@ -1,11 +1,22 @@
 const express = require('express');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const helmet = require('helmet');
 
 const db = require('./data/db.js');
 
 
 const server = express();
+
+//custom middleware [m1, m2, mn] -> [request handlers]
+
+function logger(req, res, next) {
+    //next points to the next middleware
+    console.log(`requesting: ${req.url}`);
+    // req.url = `${req.url}/1`; --used to get the first id of the users it wont display an other posts. This will happen first before anything else is executed. 
+    //res.send('done')'
+
+    next(); //second step once you write function on top
+}
 
 //middleware 
 server.use(morgan('dev'));
