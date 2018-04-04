@@ -21,6 +21,12 @@ router.get('/', (req, res) => {
         });
 });
 
+// /api/users/orders
+router.get('/:id/orders', (req, res) => {
+    res.send(
+        `viewing orders with id ${req.params.orderId}`);
+});
+
 router.get('/:id', (req, res) => {
     const { id } = req.params;
 
@@ -33,6 +39,8 @@ router.get('/:id', (req, res) => {
             res.status(500).json(error);
         });
 });
+
+
 
 router.post('/', function(req, res) {
     const user = req.body;

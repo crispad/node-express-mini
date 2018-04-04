@@ -1,6 +1,7 @@
 const express = require('express');
 //const morgan = require('morgan');
 const helmet = require('helmet');
+const cors = require('cors');
 
 const userRouter = require('./users/userRouter.js');
 
@@ -20,6 +21,7 @@ function logger(req, res, next) {
 //middleware 
 //server.use(morgan('dev'));
 server.use(helmet());
+server.use(cors());
 server.use(express.json());
 server.use(logger);
 
